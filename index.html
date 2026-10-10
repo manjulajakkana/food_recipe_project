@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Food Recipe | Choose Role</title>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Arial,Helvetica,sans-serif;min-height:100vh;display:grid;place-items:center;padding:24px;background:linear-gradient(135deg,#fff8f1,#ffe1d2);color:#332b27}
+    .wrapper{width:min(900px,100%);text-align:center}
+    .brand{font-family:Georgia,serif;font-size:clamp(30px,5vw,46px);color:#f05b32;margin-bottom:12px}
+    .intro{color:#766b64;margin-bottom:38px;font-size:17px}
+    .roles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .role-card{background:#fff;border:1px solid #f0d8cb;border-radius:24px;padding:36px 28px;box-shadow:0 16px 45px #6b35151a;transition:.2s}
+    .role-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px #6b351526}
+    .emoji{font-size:54px;margin-bottom:16px}
+    h2{font-size:27px;margin-bottom:10px}
+    .role-card p{color:#766b64;line-height:1.6;min-height:52px;margin-bottom:24px}
+    button{border:0;border-radius:30px;background:#f05b32;color:white;padding:14px 28px;font-size:16px;font-weight:bold;cursor:pointer;width:100%}
+    button:hover{background:#d94b25}
+    .user button{background:#332b27}.user button:hover{background:#514943}
+    .foot{margin-top:28px;color:#88776d;font-size:13px}
+    @media(max-width:600px){.roles{grid-template-columns:1fr}.role-card{padding:28px 22px}.role-card p{min-height:0}}
+  </style>
+</head>
+<body>
+  <main class="wrapper">
+    <div class="brand">🍴 The Food Recipe</div>
+    <p class="intro">Welcome! Choose how you want to continue.</p>
+    <div class="roles">
+      <section class="role-card admin">
+        <div class="emoji">🛡️</div>
+        <h2>Admin</h2>
+        <p>Sign up or log in to access the admin dashboard and manage the website.</p>
+        <button onclick="chooseRole('admin')">Continue as Admin</button>
+      </section>
+      <section class="role-card user">
+        <div class="emoji">👩‍🍳</div>
+        <h2>User</h2>
+        <p>Sign up or log in to explore recipes, save favourites, and share your own recipes.</p>
+        <button onclick="chooseRole('user')">Continue as User</button>
+      </section>
+    </div>
+    <p class="foot">Made with ❤️ for food lovers</p>
+  </main>
+  <script>
+    function chooseRole(role) {
+      localStorage.setItem("authRoleIntent", role);
+      window.location.href = "item.html";
+    }
+  </script>
+</body>
+</html>
